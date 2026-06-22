@@ -3,24 +3,25 @@
 ## Circuito
 
 ```
-         R1(1kΩ)         R2(10kΩ)        C1(270nF)
-V1 ──/\/\/──── A ──/\/\/──── B ──||──── C ──── V2
-5V DC          |             |              (+) (2Vrms,1kHz,0°)
-               L1(1mH)      C2(1µF)            |
-               |             |             R3(1kΩ)
-              GND           GND              |
-                                            GND
+         R1(1kΩ)  R2(10kΩ)
+         |        |
+V1+ ─── A ───────────────── C1(270nF) ─── B ─── V2+
+5V DC   |        |              +    -         (2Vrms,1kHz,0°)
+        L1(1mH)  C2(1µF)                        |
+        |        |                             R3(1kΩ)
+       GND      GND                             |
+                                               GND
 ```
+
+**Topologia-chave:** V1 está directamente ligado ao nó A (sem componentes em série entre V1+ e A). C1 tem o terminal + em A e o terminal − em B. R1-L1 e R2-C2 são ramos paralelos de A para GND.
 
 ---
 
 ## Conceito: Superposição com AC e DC
 
-Circuito com uma fonte DC (V1) e uma fonte AC (V2). Usa-se **superposição**:
-- Analisar DC (V2 = 0, curto-circuito): capacitores → aberto, indutor → curto
-- Analisar AC (V1 = 0, curto-circuito): usar impedâncias complexas
-
-A tensão total em C1 é a soma de ambas as contribuições.
+Circuito com fonte DC (V1) e fonte AC (V2). Usa-se **superposição**:
+- **DC**: V2 = 0 (curto), capacitores → aberto, indutor → curto
+- **AC**: V1 = 0 (curto), usar impedâncias complexas
 
 ---
 
@@ -28,105 +29,96 @@ A tensão total em C1 é a soma de ambas as contribuições.
 
 ### Análise DC (V2 = 0)
 
-Comportamento dos componentes reactivos em DC (regime estacionário):
-- C1, C2 → **circuito aberto** (bloqueiam DC)
-- L1 → **curto-circuito** (resistência nula em DC)
+Comportamento dos componentes reactivos em DC:
+- C1, C2 → **circuito aberto**
+- L1 → **curto-circuito**
 
-Com C1 e C2 abertos: nenhuma corrente flui por R2 (não há caminho fechado).  
-Com L1 curto: nó A fica directamente ligado à GND → $V_A = 0$  
-Sem corrente em R2: $V_B = V_A = 0$  
-V2 = 0 (curto): $V_C = 0$
+Com V1 ideal directamente em A: **V_A = 5 V** (fonte de tensão fixa o nó).
 
-$$\boxed{V_{C1}(DC) = V_B - V_C = 0 \text{ V}}$$
+C1 é aberto → não circula corrente DC por C1 → sem tensão a dividir.
+V2 = 0 → B ligado à GND através de R3 → **V_B = 0 V**
 
-Faz sentido: C1 bloqueia DC por definição. A tensão DC em C1 é zero.
+$$\boxed{V_{C1}(DC) = V_A - V_B = 5 - 0 = 5 \text{ V}}$$
+
+Correntes DC:
+- Ramo R1-L1: $I = \frac{5\text{ V}}{1\text{ k}\Omega} = 5\text{ mA}$ (L1 é curto)
+- Ramo R2-C2: $I = 0$ (C2 aberto)
 
 ### Análise AC (V1 = 0, f = 1000 Hz)
 
+Com V1 = 0 (curto), o nó A fica directamente ligado à GND. Os ramos R1-L1 e R2-C2 ficam de A(=GND) para GND — não afectam o circuito AC.
+
+O circuito AC reduz-se a: **V2 → R3 → B → C1 → A(=GND)**
+
 $\omega = 2\pi \times 1000 = 6283$ rad/s
 
-**Impedâncias:**
-$$Z_{L1} = j\omega L = j \times 6283 \times 10^{-3} = j6.28\ \Omega$$
-$$Z_{C1} = \frac{1}{j\omega C_1} = \frac{1}{j \times 6283 \times 270 \times 10^{-9}} = -j589.5\ \Omega$$
-$$Z_{C2} = \frac{1}{j\omega C_2} = \frac{1}{j \times 6283 \times 10^{-6}} = -j159.2\ \Omega$$
+$$Z_{C1} = \frac{1}{j\omega C_1} = \frac{1}{j \times 6283 \times 270\times10^{-9}} = -j589.5\ \Omega$$
 
-**Simplificação no nó A** (R1 || L1 com V1 = 0, ou seja, R1 ligado à GND):
+**Divisor de tensão** (V2 com R3 em série a alimentar Z_C1 de B para GND):
 
-$$Z_A = R_1 \| Z_{L1} = \frac{1000 \times j6.28}{1000 + j6.28} \approx j6.28\ \Omega$$
+$$V_B = V_2 \cdot \frac{Z_{C1}}{R_3 + Z_{C1}} = 2 \cdot \frac{-j589.5}{1000 - j589.5}$$
 
-(|Z_L1| ≪ R1, o indutor domina o paralelo — virtualmente um curto para AC)
+$$|Z_{total}| = \sqrt{1000^2 + 589.5^2} = 1161.5\ \Omega$$
 
-**Impedância vista do nó B para GND:**
+$$|V_B| = 2 \times \frac{589.5}{1161.5} \approx 1.016\ \text{Vrms}$$
 
-$$Z_B = Z_{C2} \| (R_2 + Z_A) = \frac{-j159.2 \times (10000 + j6.28)}{-j159.2 + 10000 + j6.28} \approx -j159\ \Omega$$
+A tensão em C1 é $V_{C1} = V_A - V_B = 0 - V_B$:
 
-(|Z_C2| ≪ R2, o condensador C2 domina — é o ramo mais fácil para AC)
+$$V_{C1}(AC) = -V_2 \cdot \frac{Z_{C1}}{R_3 + Z_{C1}} = V_2 \cdot \frac{j589.5}{1000 - j589.5}$$
 
-**Impedância total vista por V2:**
-
-$$Z_{total} = R_3 + Z_{C1} + Z_B = 1000 + (-j589.5) + (-j159.2) = 1000 - j748.7\ \Omega$$
-
-$$|Z_{total}| = \sqrt{1000^2 + 748.7^2} = \sqrt{1{,}000{,}000 + 560{,}551} \approx 1249\ \Omega$$
-
-**Tensão AC em C1** (divisor de tensão):
-
-$$\hat{V}_{C1}(AC) = V_2 \cdot \frac{Z_{C1}}{Z_{total}} = 2 \cdot \frac{-j589.5}{1000 - j748.7}$$
-
-$$|\hat{V}_{C1}| = 2 \times \frac{589.5}{1249} \approx 0.944\ \text{Vrms} \quad \Rightarrow \quad V_p = 0.944 \times \sqrt{2} \approx 1.335\ \text{V}$$
+**Módulo (pico):**
+$$V_p = 1.016 \times \sqrt{2} \approx 1.44\ \text{V}$$
 
 **Fase:**
-$$\phi = \angle(-j589.5) - \angle(1000 - j748.7) = -90° - (-36.8°) = -53.2°$$
+$$\phi = \angle(j589.5) - \angle(1000 - j589.5) = 90° - (-30.5°) = +120.5°$$
 
 ### Resultado
 
-$$\boxed{V_{C1}(t) = 1.335 \sin(2\pi \times 1000\, t - 53.2°)\ \text{V}}$$
+$$\boxed{v_{C1}(t) = 5 + 1.44\,\sin(2\pi \times 1000\,t + 120.5°)\ \text{V}}$$
 
 **Gráfico:**
 
 ```
 V_C1 (V)
-+1.335 ─ ·             ·
-        · ·           · ·
-  0 ───·───·─────────·───·────> t (ms)
-            · ·     · ·
--1.335 ─     ·     ·
-               · · ·
+6.44 ─            ·
+      ·           · ·
+5.00 ─ · ·     · ·   · ·   ← valor médio DC = 5 V
+        · ·   · ·
+3.56 ─     · ·
+      ─────────────────────> t (ms)
+       0    0.5    1.0
 
-Período T = 1 ms; sem componente DC; desfasado -53.2° de V2.
+Sinusóide de 1 kHz centrada em 5 V, amplitude ±1.44 V, adiantada 120.5° de V2.
 ```
 
 ---
 
 ## b) Potência total dissipada
 
-### Potência DC (de V1)
+Apenas resistências dissipam potência média.
 
-DC percorre apenas: V1 → R1 → L1(curto) → GND
+### Potência DC — R1 (de V1)
 
 $$I_{DC} = \frac{V_1}{R_1} = \frac{5}{1000} = 5\ \text{mA}$$
 
-$$\boxed{P_{V1} = V_1 \times I_{DC} = 5 \times 5 \times 10^{-3} = 25\ \text{mW}}$$
+$$\boxed{P_{R1} = I_{DC}^2 \times R_1 = (5\times10^{-3})^2 \times 1000 = 25\ \text{mW}}$$
 
-Toda dissipada em R1: $P_{R1} = I_{DC}^2 \times R_1 = (5\times10^{-3})^2 \times 1000 = 25\ \text{mW}$ ✓
+### Potência AC — R3 (de V2)
 
-### Potência AC (de V2)
+$$I_{rms} = \frac{V_2}{|Z_{total}|} = \frac{2}{1161.5} \approx 1.722\ \text{mA}$$
 
-Corrente eficaz fornecida por V2:
+$$\boxed{P_{R3} = I_{rms}^2 \times R_3 = (1.722\times10^{-3})^2 \times 1000 \approx 2.97\ \text{mW}}$$
 
-$$I_{V2} = \frac{V_2}{|Z_{total}|} = \frac{2}{1249} \approx 1.60\ \text{mA (rms)}$$
+### Potência em R2
 
-Apenas **resistências** dissipam potência média. A potência real é dada pela parte resistiva de $Z_{total}$:
-
-$$\boxed{P_{V2} = I_{V2}^2 \times \text{Re}(Z_{total}) = (1.60 \times 10^{-3})^2 \times 1000 \approx 2.56\ \text{mW}}$$
-
-Dissipada essencialmente em R3 (≈ 2.55 mW); R2 e R1 recebem corrente AC negligenciável.
+R2 tem C2 em série. Em DC: C2 aberto → $I = 0$. Em AC: nó A está a GND (V1 curto) → $V_A = 0$ → corrente nula. $P_{R2} \approx 0$
 
 ### Total
 
 | Fonte | Potência fornecida | Dissipada em |
 |---|---|---|
 | V1 (DC) | 25 mW | R1 (25 mW) |
-| V2 (AC) | 2.56 mW | R3 (≈ 2.55 mW), R2 (≈ 0.006 mW) |
-| **Total** | **≈ 27.6 mW** | — |
+| V2 (AC) | 2.97 mW | R3 (2.97 mW) |
+| **Total** | **≈ 28 mW** | — |
 
 > **Nota:** L1, C1, C2 são elementos reactivos ideais — dissipam potência média zero.
