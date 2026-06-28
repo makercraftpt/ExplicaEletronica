@@ -21,3 +21,7 @@
   - [E2 — Não-Inversor com Referência](exercicios_extra/E2_amop_nao_inversor.md)
   - [E3 — Rectificador de Precisão](exercicios_extra/E3_amop_diodo_rectificador.md)
   - [E4 — Amplificador de Diferença e CMRR](exercicios_extra/E4_amop_diferenca_cmrr.md)
+
+- **Exame de Preparação**
+  - [Exame Completo (P1–P5)](exame_preparacao.md)
+  - [Inventário de Tópicos](inventario_topicos.md)
