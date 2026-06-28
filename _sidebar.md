@@ -25,3 +25,6 @@
 - **Exame de Preparação**
   - [Exame Completo (P1–P5)](exame_preparacao.md)
   - [Inventário de Tópicos](inventario_topicos.md)
+
+- **Recursos**
+  - [Bibliografia](bibliografia.md)
