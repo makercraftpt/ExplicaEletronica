@@ -1,0 +1,25 @@
+# Configuração Pandoc — ExplicaEletronica
+# Usado por gerar_pdf.bat
+
+variables:
+  geometry: "margin=2.5cm"
+  fontsize: "11pt"
+  lang: "pt"
+  mainfont: "Latin Modern Roman"   # fonte limpa compatível com xelatex
+  mathfont: "Latin Modern Math"
+  linestretch: 1.3
+
+# Renderização de fórmulas: $...$ e $$...$$ → LaTeX nativo
+# (funciona directamente com xelatex, sem flags adicionais)
+
+pdf-engine: xelatex
+
+# Cabeçalho automático com título + número de página
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancyhf{}
+  - \rhead{Electrónica UC 2025/2026}
+  - \cfoot{\thepage}
+  - \usepackage{amsmath}
+  - \usepackage{amssymb}

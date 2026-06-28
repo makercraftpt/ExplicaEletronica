@@ -1,0 +1,35 @@
+* Q3 - 1a Frequencia: AmOp Thevenin e Saturacao
+* Vo = 5.125*Vin - 8.25 V  |  saturacao negativa em Vp = 1.32 V
+
+* --- Fontes ---
+V1   vcc  0   DC 5
+Vin  plus  0   SINE(0 0.5 1000)
+
+* --- Divisor de Thevenin ---
+R1   vcc   mid   15k
+R2   mid   0     10k
+
+* --- Rede de realimentacao (entrada inversora) ---
+R3   mid   inv   10k
+RF   inv   out   66k
+
+* --- AmOp ideal com saturacao +/-15V (fonte comportamental) ---
+Eamp  out  0  VALUE={LIMIT(1Meg*(V(plus)-V(inv)), -15, 15)}
+
+* --- Simulacao ---
+.tran 0 5m 0 1u
+
+* --- Medicoes (regime estacionario: 2ms a 5ms) ---
+.meas tran Vo_max  MAX V(out)  FROM 2m TO 5m
+.meas tran Vo_min  MIN V(out)  FROM 2m TO 5m
+.meas tran Vo_avg  AVG V(out)  FROM 2m TO 5m
+
+* Valores esperados (Vp = 0.5 V):
+*   Vo_max = -5.69 V
+*   Vo_min = -10.81 V
+*   Vo_avg = -8.25 V
+*
+* Para testar saturacao: muda Vin para SINE(0 1.32 1000)
+*   Vo_min deve tocar -15 V
+
+.end
