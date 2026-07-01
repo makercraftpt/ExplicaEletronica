@@ -12,7 +12,7 @@
 
 ![Circuito RLC série](figuras/fig_exam2_p1_rlc_serie.png)
 
-[Simular no Falstad](falstad/circ_exam2_p1.txt)
+*(simulação a adicionar após criação dos circuitos)*
 
 **a)** Calcule as impedâncias $Z_R$, $Z_L$ e $Z_C$ a $f = 1\,\text{kHz}$.
 
@@ -106,7 +106,7 @@ Em ressonância: $Z_L + Z_C = 0$, logo $\mathbf{Z} = R = 2\,\text{k}\Omega$ (mí
 
 ![Filtro passa-banda activo](figuras/fig_exam2_p2_filtro_pb.png)
 
-[Simular no Falstad](falstad/circ_exam2_p2.txt)
+*(simulação a adicionar após criação dos circuitos)*
 
 **a)** Derive a função de transferência $H(j\omega) = V_o/V_i$. Mostre que se trata de um **filtro passa-banda**.
 
@@ -197,7 +197,7 @@ Como $f_{\text{GBW}} = 100\,\text{kHz} \gg f_H = 10\,\text{kHz}$, **o GBW não l
 
 ![AmOp Integrador](figuras/fig_exam2_p3_integrador.png)
 
-[Simular no Falstad](falstad/circ_exam2_p3.txt)
+*(simulação a adicionar após criação dos circuitos)*
 
 **a)** Derive $H(j\omega) = V_o/V_i$. Mostre que o circuito é um integrador e determine a constante de tempo $\tau$.
 
@@ -289,7 +289,7 @@ Durante o semiciclo negativo ($v_i = -2\,\text{V}$): rampa ascendente de $+10\,\
 
 ![Regulador Zener](figuras/fig_exam2_p4_zener_regulador.png)
 
-[Simular no Falstad](falstad/circ_exam2_p4.txt)
+*(simulação a adicionar após criação dos circuitos)*
 
 **a)** Determine a tensão de saída $V_o$. Verifique que o Zener está a regular (condição de regulação).
 
@@ -363,7 +363,7 @@ $$\boxed{V_{in,\text{máx}} = V_z + I_{R,\text{máx}} \times R = 9 + 58{,}9 \tim
 
 ![BJT Inversor Digital](figuras/fig_exam2_p5_bjt_inversor.png)
 
-[Simular no Falstad](falstad/circ_exam2_p5.txt)
+*(simulação a adicionar após criação dos circuitos)*
 
 **a)** Para $V_{IN} = 0\,\text{V}$: determine o estado do BJT, calcule $I_B$, $I_C$ e $V_O$.
 

@@ -10,7 +10,7 @@
 
 ![Circuito RC com carga RL](figuras/fig_exam_p1_rc_thevenin.png)
 
-> [Simular no Falstad](falstad/circ_exam_p1.txt)
+> [Simular no Falstad ↗](https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EIALI1QA3CENQBbTEICmAWiQoAfACgoUYLKgAPRJJZRmkqJaj0qqeAhFQA7i5SwFyQsoBDU1kKLl4oUQALAIw1AGVIsBg0ClwiOmw6TnZGDizLbPYEAHp9Q2BocwRsh0lsKCRJWyo65xxUXxoCErKjEDMKOnYHImGkIetsSTbXPlTCBcXCJE1wsBDXfGxvDF83WQATdtKDI0rEFvqqUdr6mxm3X2Zuk/L3AakrRzsv1thj3rAd5VeyXKA1S4PHqnIEfRrNOoNCaQ/6zV5GYGDYZg8bY0ZQ9Gwqq426klEuESEzEIMG0xHXIqoymA6lgmykxiMRkU6FvD5srlI4ac7kAmHUkkioWTaZM3kYuETKX2EUElkfFWClVTNUw0yK7FUTgNThUBy5KFQDBgC6ytBqRAAQXlwH1xMoDjoSAa9E9sp5VptNLtDoQACUXW6LkQzcwvmxrNpLdbbah7YgwwAZSNwzh3VgOTKJ7wBlPBtOhgDCOaqVzozS%2BDGTQZaFcQADUMNDgMVwBAdEA)
 
 Fonte AC $v_s(t) = 12\sqrt{2}\cos(2\pi \times 1000 \cdot t)$ V (→ $V_s = 12\angle 0°$ V rms) em série com $R = 2\ \text{k}\Omega$. Nos terminais de saída (entre o nó A e a massa) estão em paralelo $C = 100\ \text{nF}$ e a carga $R_L = 3\ \text{k}\Omega$.
 
@@ -70,7 +70,7 @@ A 1 kHz estamos **acima** de $f_0$: o condensador já tem impedância menor que 
 
 ![Filtro activo passa-baixo](figuras/fig_exam_p2_filtro_pb.png)
 
-> [Simular no Falstad](falstad/circ_exam_p2.txt)
+> [Simular no Falstad ↗](https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EIALI1QA3CENQBbTEICmAWiQoAfACgoUYLKgAPRJJZRmkqJaj0qqeAhFQA7i5SwFyQsoBDU1kKLl4oUQALAIw1AGVIsBg0ClwiOmw6TnZGDizLbPYEAHp9Q2BocwRsh0lsKCRJWyo65xxUX0p/UoMjEDMKTioGqisW%2BqRRttc%2BCk1OUhDXfGxvDF83WQATdp7y9wGpMbph%2B3HpkT2jA6qzuqga89hdsuvDxub7pDp2WrcXS6vYA3CxWRiMX72GwXEpA0zvSgOOhIEacJGSGFQDBgCgkdBqRAAJRQV2A8Kq9XotiQjCR4QBqGxuNQaAJCAAamBYb1gAF3j8HERflQhYKis8ECxAsyoEocQgtHiAOYBCiEAjc8qVQbDJBDP4NIaYzrqwE88mIGjU9h0Bx6hoZTFM5B41lEmCaoxK/nCk4O37QiVm8re25giF2MFEJxBz3AAA2ADtDqMxqLwcKhZi3RyAPZxkEIRxI4bFkXihmkwtl0XlsUwqspv111P12ONqo1326o3toHVv160tfXuV/vvJoGj6GmNjnmF6dDmczhtwlPaB62qhUFFdJ3ypCutkAYQLTZ7pcHUz78/PIzGX2vc/2731kysi6fL1vVU/H8nQ6rnowDFOAEA6EAA==)
 
 AmOp com alimentação $\pm 15$ V. Entrada $v_i$ ligada ao terminal $(-)$ através de $R_1 = 10\ \text{k}\Omega$. Malha de realimentação entre saída e $(-)$: $R_f = 100\ \text{k}\Omega$ em **paralelo** com $C_f = 1\ \text{nF}$. Terminal $(+)$ à massa.
 
@@ -126,7 +126,7 @@ Como $f_c(RC) \approx 1.59\ \text{kHz} \ll 100\ \text{kHz}$, **o filtro é limit
 
 ![Somador inversor com duas entradas](figuras/fig_exam_p3_somador.png)
 
-> [Simular no Falstad](falstad/circ_exam_p3.txt)
+> [Simular no Falstad ↗](https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EIALI1QA3CENQBbTEICmAWiQoAfACgoUYLKgAPRFvZRmkqJaj0qqeAhFQA7i5SwFyQsoBDU1kKLl4oUQALAIw1AGVIsBg0ClwiOmw6TnZGDizJFmz2BAB6fUNgaHMEbIdJbCgkSVsqeuccVF9KfzKDI3czCyQrRzthurcXEV6Kger7VobaxfbXUvL%2BweRmica6EbbYDpnN%2BfHGRit7G1XpjeBTLZYRqk5G7CIHXNvUDDAKEjoNSIABKKBODy2GnSDjonw0jDe9BYPygfwBqDQwIQADVwfcAlskPsHEQRmTScUjggUVAlAEMXT/ggtICAOYMvyEO59SpEzhURoC3ZIAWo3zsbnrXmPao0WzDOgOUV7SYdNHMpCArGgmDSipsokk0bEqw3ak8g1Q86XMZmohOC36owAGwAdlsqCwWJTrLaqGTUTrcQB7Z3AOaIUYB8mxn4QyMIaMUr0%2BmPx%2B6J5MjOiC0WOqbhrO5oWCxaljO8xNNFr1Ro7fOV2ZEhvC/MVp0Qw3VcbNH299iSJtGWUWXLWZ5jWyMQqo9HIbXYnFOBNEqx9xrr4bDiNricK%2B0F473Ew9rdWc4sIdOjxeZxdfx0oIhZBhMTRWIJJIpZBpDJZHI8k4AoinDKpEFqGx62nbBr0LKBfGYHpMxbGCFR2FZO3uUcaSVV5PkoEZOFpeD5y1TFsRBFcULPawHU3axYJ3aszVgqBIKYrC9GAEpwAgHQgA=)
 
 AmOp inversor com duas entradas. $V_1$ ligada ao terminal $(-)$ através de $R_1 = 10\ \text{k}\Omega$; $V_2$ ligada ao mesmo terminal $(-)$ através de $R_2 = 30\ \text{k}\Omega$. Malha de realimentação: $R_f = 60\ \text{k}\Omega$. Terminal $(+)$ à massa. Alimentação $\pm 13\ \text{V}$.
 
@@ -186,7 +186,7 @@ Com $A = 100\ 000$ o erro é desprezável. O ganho finito só se torna limitante
 
 ![Clipper duplo com Zener](figuras/fig_exam_p4_zener_clipper.png)
 
-> [Simular no Falstad](falstad/circ_exam_p4.txt)
+> [Simular no Falstad ↗](https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EIALI1QA3CENQBbTEICmAWiQoAfACgoUYNAAeiTuyhVJ2KEkmSrN1PAQioC5MJEB6fYeAAdygzBC1La1sLJ3dXX38jYND7R0i7OgjnWBwEPwMjExDEFgiqTjtsIitGKhccqAwwChJ0NUQAJRQ8gMLQjSI6KzoqjQchljq3VEbm1DQ2hAA1MFyE4AAbADsisKRM21GWGMn3ecQAalX84AATJShNpURFgC8J7KmoMCxkTXtUCA/dybRC1KD8WTFK4BF47FJQRhEKh2MbMSQnZQAe2eb2hBThREsiNsNFsiJkH3cMy8cwWrzgLEWeI221CNRJNgR7COkQxrWemOZWx24QRSKghzFYLitMQGmZvWaRMYjiQbARjF4lOmTRp/IQABEXl01ncHk9DXgta4UF8fkh8IQnc7aH90R4gagQch8FQ9thJOwkERJAxJCxbRD6jBdXgCOjukYbnCxml4fRpfUlNjLbheIngIrkOxkRxBmqkENYvVqcHZYaTddk6EqNYhqW27ztVBs4gDVbmbCW220VYR0i%2Bb2lriC0XrFVGIuhpXF%2Bw%2BbWWmdDS9arOdvOEZJylQWOVEZnPhv6/TGQr94xj3RK1QiDy6O6ZQ1dXX9Qbd2skgoDIYjHVIshlAtAIQVswLJGhjm1SCU1SOhkXhNEMSQ4cUI7RwMMQgCRT2KUUTwicCOuKD0PFGCpUwwjsJI1c6IogJZCIol4NFE93htNcoECG0XE8dh3CUABDExIRpLC5WItJuJYXiclk3ZOIOYjz3o64AHNkJI9DuW0gJMSgNRvSQThplERAakmExImwCkbKmBIAlEKBpKpchkHifJ3M82zph8uNCB4dhCRfZkfExfRgB8cAIB0IA===)
 
 Fonte $v_i = 15\sin(\omega t)$ V. Em série: $R = 1.5\ \text{k}\Omega$. Dois ramos em paralelo na saída: ramo esquerdo D1 (ânodo em Vo) + Dz1 (Vz=8V, breakdown reverso) para massa — clipa em +8.7 V; ramo direito D2 (invertido, ânodo na base) + Dz2 (Vz=8V) para massa — clipa em −8.7 V.
 
@@ -245,7 +245,7 @@ $$\boxed{\text{Para } v_i^{pico} < V_D,\text{ só o rectificador de precisão fu
 
 ![BJT emissor-comum](figuras/fig_exam_p5_bjt_ec.png)
 
-> [Simular no Falstad](falstad/circ_exam_p5.txt)
+> [Simular no Falstad ↗](https://www.falstad.com/circuit/circuitjs.html?ctz=DwYwlgTgBAZgvAIgIwKgFwM6IAwDpsEECsqYIiSeATAVQOx0DM2AHFQGwCcndqIARoiLZUAB0EIALI1QA3CENQBbTEICmAWiQoAfACgoUYAA8oxxBqKMojIkSgaqkm0Rap4CEVAxgKJdGqIAGo%2BAOYIAPT6hsCyZjg2LM7YLlTuFOyoAO4eKLAKCOxeSgCGxrI4uChRBkZo8chFNjRQSJxUzV4eXqIAdhSo/IHIwsoA9ogAJmowJQCuADZockM4K%2BSekdFG0ObIVCydrQdQVESZsGtQBZSEIjUxuxQnjC1IJ5IE6ZvXiIzMXweOwabQ6/3YrXaUE%2BXSuBSoNHu21ADScKVsHTR0K%2Blx%2BGzwd2w3GJJNJ3FIFU8%2BGweQwBS8skmayBwCeyChzGcoNOn2%2BXgK/0ByLZkkOrxS6JofNQN0IW1qrIa4tSRxh0t%2ByDu8piACUQVCEVyoaDvkgLjkrqVys9tUYsvrMZ9IZinNKWfa9tyse9Dmi3ciPc9fU6fadzv6FYH9mK3k1xRGYlHQzDndjYZt3Q60zyUmrcUiFaEsynuZIzQm7ainRiczZGBdurbgFGseDU%2BCKyi9uxnMrOBD4/m%2BJVCWSx8SKSOaag6VdGczkaZPZJnPRDmbrAc8o3vL4Rqg0MMddVFyDq0QkK0iJwXJJ1T4/Aej2kWUvEDRe%2BxL4abD373ukH8Q9EB1ABRJs3wQM50XYOhTjodEEP/R8AkQABhcDX1RbBV3YTczlOdgGyuB991QhAdTQiCGjoS9bEvTh0SIO8h13FDgIQNCTwVSDHHRShWn4mRWNIwCnxAsImyjJiOkldMC0TBpRSOHtOk7KN%2ByOUNB0bTNPQ5HDa05TsQCrdFDIOMUcPVfFqUIcdx0nKkCFpek5CZDNTz2M5rEFeCwX%2BZCyI4tCXy8v5GDorgXEQtIRIAoCjwAGSbIs9nRJIoFzcshxZNK/haFNlTLYjPMjJUWhrZVjNygMKvM1cWCsljdP0YAInACAdCAA)
 
 NPN BJT, $\beta = 150$, $V_{BE} = 0.7\ \text{V}$, $V_{CC} = 12\ \text{V}$.
 Divisor de base: $R_1 = 100\ \text{k}\Omega$ (de $V_{CC}$ à base), $R_2 = 33\ \text{k}\Omega$ (da base à massa).
