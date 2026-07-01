@@ -12,7 +12,7 @@
 
 ![Circuito RLC série](figuras/fig_exam2_p1_rlc_serie.png)
 
-*(simulação a adicionar após criação dos circuitos)*
+[Simular no Falstad](https://makercraft.pt/ExplicaEletronica/falstad/circ_exam2_p1.txt)
 
 **a)** Calcule as impedâncias $Z_R$, $Z_L$ e $Z_C$ a $f = 1\,\text{kHz}$.
 
@@ -106,7 +106,7 @@ Em ressonância: $Z_L + Z_C = 0$, logo $\mathbf{Z} = R = 2\,\text{k}\Omega$ (mí
 
 ![Filtro passa-banda activo](figuras/fig_exam2_p2_filtro_pb.png)
 
-*(simulação a adicionar após criação dos circuitos)*
+[Simular no Falstad](https://makercraft.pt/ExplicaEletronica/falstad/circ_exam2_p2.txt)
 
 **a)** Derive a função de transferência $H(j\omega) = V_o/V_i$. Mostre que se trata de um **filtro passa-banda**.
 
@@ -197,7 +197,7 @@ Como $f_{\text{GBW}} = 100\,\text{kHz} \gg f_H = 10\,\text{kHz}$, **o GBW não l
 
 ![AmOp Integrador](figuras/fig_exam2_p3_integrador.png)
 
-*(simulação a adicionar após criação dos circuitos)*
+[Simular no Falstad](https://makercraft.pt/ExplicaEletronica/falstad/circ_exam2_p3.txt)
 
 **a)** Derive $H(j\omega) = V_o/V_i$. Mostre que o circuito é um integrador e determine a constante de tempo $\tau$.
 
@@ -261,6 +261,52 @@ $$\boxed{v_o(t) = 2 \times 15{,}92\cos(2\pi\times100\,t + 90°) = -31{,}8\sin(2\
 
 **Declive de $-20\,\text{dB/déc$}$**: quando $f$ aumenta 10×, $|H|$ cai 10× (= 20 dB). O integrador ideal tem ganho infinito para $f \to 0$ — razão pela qual qualquer offset DC envia a saída para a saturação (problema prático).
 
+![Diagrama de Bode — Integrador Ideal](figuras/bode_integrador.png)
+
+<details>
+<summary>🐍 Como gerar este Bode em Python (PyCharm)</summary>
+
+**Instalar as bibliotecas** (uma única vez) — abre o terminal do PyCharm (`Alt+F12` ou *View → Tool Windows → Terminal*) e corre:
+
+```
+pip install numpy scipy matplotlib
+```
+
+**Código Python:**
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import signal
+
+R = 10e3   # 10 kΩ
+C = 10e-9  # 10 nF
+num = [-1]
+den = [R*C, 0]
+H = signal.TransferFunction(num, den)
+
+f = np.logspace(1, 5, 500)
+w, mag, phase = signal.bode(H, w=2*np.pi*f)
+f_hz = w / (2*np.pi)
+
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(7, 5))
+ax1.semilogx(f_hz, mag)
+ax1.set_ylabel('Magnitude (dB)')
+ax1.grid(True, which='both')
+ax1.set_title('Bode — AmOp Integrador Ideal  (R=10 kΩ, C=10 nF)')
+ax2.semilogx(f_hz, phase)
+ax2.set_ylabel('Fase (°)')
+ax2.set_xlabel('Frequência (Hz)')
+ax2.grid(True, which='both')
+plt.tight_layout()
+plt.savefig('bode_integrador.png', dpi=150)
+plt.show()
+```
+
+**Como correr:** cria um ficheiro `bode_integrador.py`, cola o código, e corre com `Shift+F10` (ou botão ▶). A imagem é gravada na pasta do projecto como `bode_integrador.png`.
+
+</details>
+
 #### e) Onda quadrada como entrada
 
 Uma onda quadrada é a alternância de $+2\,\text{V}$ e $-2\,\text{V}$.
@@ -289,7 +335,7 @@ Durante o semiciclo negativo ($v_i = -2\,\text{V}$): rampa ascendente de $+10\,\
 
 ![Regulador Zener](figuras/fig_exam2_p4_zener_regulador.png)
 
-*(simulação a adicionar após criação dos circuitos)*
+[Simular no Falstad](https://makercraft.pt/ExplicaEletronica/falstad/circ_exam2_p4.txt)
 
 **a)** Determine a tensão de saída $V_o$. Verifique que o Zener está a regular (condição de regulação).
 
@@ -446,25 +492,4 @@ $$P_{\text{OFF}} = V_{CC} \times (I_C + I_B) = 5 \times (0 + 0) = \boxed{0\,\tex
 
 **Estado ON** ($V_{IN} = 5\,\text{V}$, BJT em saturação):
 
-- Ramo do colector: $P_{CC,C} = V_{CC} \times I_{C,\text{sat}} = 5 \times 4{,}8 \times 10^{-3} = 24\,\text{mW}$
-  - Dissipado em $R_C$: $I_{C,\text{sat}}^2 \times R_C = (4{,}8 \times 10^{-3})^2 \times 1000 = 23{,}0\,\text{mW}$
-  - Dissipado no BJT (CE): $V_{CE,\text{sat}} \times I_{C,\text{sat}} = 0{,}2 \times 4{,}8 \times 10^{-3} = 0{,}96\,\text{mW}$
-- Ramo da base: $P_{IN,B} = V_{IN} \times I_B = 5 \times 0{,}43 \times 10^{-3} = 2{,}15\,\text{mW}$
-  - Em $R_B$: $1{,}85\,\text{mW}$; no BJT (BE): $0{,}30\,\text{mW}$
-
-$$P_{\text{ON,total}} = 24 + 2{,}15 = \boxed{26{,}2\,\text{mW}}$$
-
-$$P_{\text{BJT,ON}} = 0{,}96 + 0{,}30 = \boxed{1{,}26\,\text{mW}}$$
-
-**O estado OFF é energeticamente mais eficiente** (potência nula). Esta é a base da lógica digital CMOS, onde em regime estático um dos dois transistores está sempre em corte.
-
----
-
-## Resumo de Resultados
-
-| | P1 | P2 | P3 | P4 | P5 |
-|---|---|---|---|---|---|
-| **Tema** | RLC + potência | Filtro passa-banda | Integrador | Regulador Zener | BJT inversor |
-| **Resultado-chave** | $FP = 0{,}842$ cap. | $f_L=1\,\text{kHz}$, $f_H=10\,\text{kHz}$, $A_0=20\,\text{dB}$ | $v_o = -3{,}18\sin(\omega t)$ a 1 kHz | $V_o=9\,\text{V}$, $I_Z=7{,}4\,\text{mA}$ | $V_{IN,\text{min}}=1{,}18\,\text{V}$ |
-
-<!-- Nota para o Miro: figuras a desenhar — ver todo_figuras.md para nomes exactos e descrições detalhadas. Falstad: P4 (Zener regulador) e P5 (BJT com RB e RC) são os mais simples de montar. -->
+- Ramo do colector: $P_{CC,C} = V_{CC} \times I_{C,\text{sat}} = 5 \times 4{,}8 \times 10^{-3} = 24\,\text{

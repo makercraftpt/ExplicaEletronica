@@ -355,17 +355,4 @@ $$\boxed{\text{Bypass} \leftrightarrow \text{alto ganho + baixa } R_{in} \qquad 
 | 5 | b | $g_m = 41.4$ mA/V; $r_\pi = 3.62$ kΩ |
 | 5 | c | $R_{in} = 3.16$ kΩ |
 | 5 | d | $v_o/v_{sig} = -78.1$ V/V (com bypass) |
-| 5 | e | $v_o/v_{sig} = -1.07$ V/V (sem bypass) |
-
----
-
-## Recomendação de modelo
-
-Para trabalhar neste projecto de tutoria recomendo **Claude Sonnet** (`claude-sonnet-4-6`):
-
-- Rápido e económico para resolução iterativa de exercícios
-- Suficiente para derivações matemáticas, KCL/KVL, análise de circuitos
-- Reserve **Claude Opus** (`claude-opus-4-8`) apenas para questões conceptuais complexas ou quando precisar de raciocínio mais aprofundado (ex: derivações de modelo, análise de erros sistemáticos, questões abertas)
-- Para gerar o site Docsify ou verificar código: qualquer modelo serve
-
-> **Sonnet** para o dia-a-dia; **Opus** para as grandes questões.
+| 5 | e | $v_o/v_{sig} = -1.07$ V/V (sem bypass) |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
