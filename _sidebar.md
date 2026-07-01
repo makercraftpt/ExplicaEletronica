@@ -23,7 +23,8 @@
   - [E4 — Amplificador de Diferença e CMRR](exercicios_extra/E4_amop_diferenca_cmrr.md)
 
 - **Exame de Preparação**
-  - [Exame Completo (P1–P5)](exame_preparacao.md)
+  - [Exame 1 — P1–P5](exame_preparacao.md)
+  - [Exame 2 — P1–P5 (Nível Elevado)](exame_preparacao_2.md)
   - [Inventário de Tópicos](inventario_topicos.md)
 
 - **Recursos**

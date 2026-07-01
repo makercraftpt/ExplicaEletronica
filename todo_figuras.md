@@ -67,6 +67,18 @@
 
 ---
 
+## Exame de Preparação 2
+
+| # | Ficheiro PNG | O que mostrar | Falstad? |
+|---|---|---|---|
+| 🔲 | `figuras/fig_exam2_p1_rlc_serie.png` | Fonte Vs=20∠0°V → R=2kΩ → L=50mH → C=100nF, todos em série. Marcar corrente I e tensões VR, VL, VC. | ⚡ `falstad/circ_exam2_p1.txt` |
+| 🔲 | `figuras/fig_exam2_p2_filtro_pb.png` | AmOp inversor. Vi → C1=16nF em série com R1=10kΩ → entrada (−). Feedback: Rf=100kΩ **em paralelo** com Cf=160pF. Entrada (+) à massa. Saída Vo. | ⚡ `falstad/circ_exam2_p2.txt` |
+| 🔲 📐 | `figuras/fig_exam2_p3_integrador.png` | AmOp inversor. Vi → R=10kΩ → entrada (−). Feedback: C=10nF de saída para (−). Entrada (+) à massa. Saída Vo. | ⚡ `falstad/circ_exam2_p3.txt` |
+| 🔲 | `figuras/fig_exam2_p4_zener_regulador.png` | Vin=15V (DC) → R=560Ω → nó A. Zener Vz=9V de nó A para massa (cátodo em cima). RL=2.7kΩ em paralelo com o Zener. Saída Vo=nó A. Marcar IR, IZ, IL. | ⚡ `falstad/circ_exam2_p4.txt` |
+| 🔲 | `figuras/fig_exam2_p5_bjt_inversor.png` | BJT NPN. VCC=5V → RC=1kΩ → coletor. Base: VIN → RB=10kΩ → base. Emissor à massa. Saída Vo=coletor. Marcar IB, IC, VIN, VO. | ⚡ `falstad/circ_exam2_p5.txt` |
+
+---
+
 ## Resumo de contagem
 
 | Secção | PNGs a criar | Falstad a criar | Falstad já feito |
@@ -74,9 +86,10 @@
 | 1ª Frequência | 4 | 3 | 0 |
 | 2ª Frequência | 5 | 4 | 0 |
 | Exercícios Extra | 4 | 0 | 4 ✅ |
-| Exame Preparação | 5 | 5 | 0 |
+| Exame Preparação 1 | 5 | 5 | 0 |
+| Exame Preparação 2 | 5 | 5 | 0 |
 | Conceitos | 2 | 0 | 0 |
-| **Total** | **20** | **12** | **4** |
+| **Total** | **25** | **17** | **4** |
 
 ---
 
