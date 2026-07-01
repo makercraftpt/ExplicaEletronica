@@ -259,7 +259,7 @@ $$\boxed{v_o(t) = 2 \times 15{,}92\cos(2\pi\times100\,t + 90°) = -31{,}8\sin(2\
 | 1 kHz | 0,6283 | 1,592 | +4,0 dB |
 | 10 kHz | 6,283 | 0,1592 | −15,96 dB |
 
-**Declive de $-20\,\text{dB/déc$}$**: quando $f$ aumenta 10×, $|H|$ cai 10× (= 20 dB). O integrador ideal tem ganho infinito para $f \to 0$ — razão pela qual qualquer offset DC envia a saída para a saturação (problema prático).
+**Declive de $-20\,\text{dB/déc}$**: quando $f$ aumenta 10×, $|H|$ cai 10× (= 20 dB). O integrador ideal tem ganho infinito para $f \to 0$ — razão pela qual qualquer offset DC envia a saída para a saturação (problema prático).
 
 ![Diagrama de Bode — Integrador Ideal](figuras/bode_integrador.png)
 
@@ -492,4 +492,25 @@ $$P_{\text{OFF}} = V_{CC} \times (I_C + I_B) = 5 \times (0 + 0) = \boxed{0\,\tex
 
 **Estado ON** ($V_{IN} = 5\,\text{V}$, BJT em saturação):
 
-- Ramo do colector: $P_{CC,C} = V_{CC} \times I_{C,\text{sat}} = 5 \times 4{,}8 \times 10^{-3} = 24\,\text{
+- Ramo do colector: $P_{CC,C} = V_{CC} \times I_{C,\text{sat}} = 5 \times 4{,}8 \times 10^{-3} = 24\,\text{mW}$
+  - Dissipado em $R_C$: $I_{C,\text{sat}}^2 \times R_C = (4{,}8 \times 10^{-3})^2 \times 1000 = 23{,}0\,\text{mW}$
+  - Dissipado no BJT (CE): $V_{CE,\text{sat}} \times I_{C,\text{sat}} = 0{,}2 \times 4{,}8 \times 10^{-3} = 0{,}96\,\text{mW}$
+- Ramo da base: $P_{IN,B} = V_{IN} \times I_B = 5 \times 0{,}43 \times 10^{-3} = 2{,}15\,\text{mW}$
+  - Em $R_B$: $1{,}85\,\text{mW}$; no BJT (BE): $0{,}30\,\text{mW}$
+
+$$P_{\text{ON,total}} = 24 + 2{,}15 = \boxed{26{,}2\,\text{mW}}$$
+
+$$P_{\text{BJT,ON}} = 0{,}96 + 0{,}30 = \boxed{1{,}26\,\text{mW}}$$
+
+**O estado OFF é energeticamente mais eficiente** (potência nula). Esta é a base da lógica digital CMOS, onde em regime estático um dos dois transistores está sempre em corte.
+
+---
+
+## Resumo de Resultados
+
+| | P1 | P2 | P3 | P4 | P5 |
+|---|---|---|---|---|---|
+| **Tema** | RLC + potência | Filtro passa-banda | Integrador | Regulador Zener | BJT inversor |
+| **Resultado-chave** | $FP = 0{,}842$ cap. | $f_L=1\,\text{kHz}$, $f_H=10\,\text{kHz}$, $A_0=20\,\text{dB}$ | $v_o = -3{,}18\sin(\omega t)$ a 1 kHz | $V_o=9\,\text{V}$, $I_Z=7{,}4\,\text{mA}$ | $V_{IN,\text{min}}=1{,}18\,\text{V}$ |
+
+<!-- Nota para o Miro: figuras a desenhar — ver todo_figuras.md para nomes exactos e descrições detalhadas. Falstad: P4 (Zener regulador) e P5 (BJT com RB e RC) são os mais simples de montar. -->
